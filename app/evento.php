@@ -9,8 +9,8 @@ echo "O {$nomeEvento} vai acontecer na data {$dataEvento}";
 echo "<hr>";
 
 // MOSTRANDO VETORES DE FORMA COMPLETA
-//print_r($_POST);
-var_dump($_POST);
+print_r($_POST);
+//var_dump($_POST);
 
 function validaData($data){
 
