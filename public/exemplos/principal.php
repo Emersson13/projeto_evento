@@ -2,7 +2,6 @@
 include("heranca1.php");
 
 $v1 = new Veiculo("Fiat","Argo");
-$v1->nomeClasse;
 $v1->ligar();
 echo "<br>";
 //$v1->desligar();
@@ -12,4 +11,9 @@ echo "<hr>";
 
 $c1 = new Carro("Chevrolet","Ônix");
 $c1->ligar();
+echo "<br>";
 $c1->ligarParaBrisa();
+echo "<br>";
+
+$m1 = new Moto("Honda", "CG - Titan");
+$m1->ativarAntena();

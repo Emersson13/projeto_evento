@@ -37,3 +37,10 @@ class Carro extends Veiculo{
         echo "{$this->nomeClasse} ligou o para-brisa <br>";
     }
 }
+
+class Moto extends Veiculo{
+
+    public function ativarAntena(){
+        echo "{$this->nomeClasse} ativou a antena corta pipa";
+    }
+}
