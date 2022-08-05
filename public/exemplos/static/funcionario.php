@@ -9,4 +9,10 @@ class Funcionario{
 
         echo "Olá ".self::$nome."  seu salário é ". self::$salario." reais";
     }
+    public static function getSalario(){
+        return self::$salario;
+    }
+    public static function setSalario($valor){
+        self::$salario = $valor;
+    }
 }
