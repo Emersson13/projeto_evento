@@ -92,7 +92,7 @@ class Evento{
             //echo "<br> Arquivo aceito";
 
             $infoArquivo = pathinfo($this->banner["name"]);// retorna um array com informações mais detalhadas do arquivo
-            /*
+           /*
             echo"<br>";
             echo "<pre>";
                 print_r($infoArquivo);
@@ -110,7 +110,13 @@ class Evento{
                     mkdir($pasta,0777,true);// a função mkdir precisa de 3 parâmetros: 1. nome da pasta; 2. permisão para ler e escrever na pasta; 3. se irá criar subpastas ou não
                 }
 
-                $caminhoFinal = $pasta.$this->banner["name"];
+                // RENOMEANDO O ARQUIVO
+                $novoNome = new DateTime();
+                //echo "<hr>".$novoNome->getTimestamp();
+                $nomeFinal = $novoNome->getTimestamp().".".$infoArquivo["extension"];
+                //echo "<hr>".$nomeFinal;
+
+                $caminhoFinal = $pasta.$nomeFinal;
                 move_uploaded_file($this->banner["tmp_name"], $caminhoFinal);
                 //echo "<img src='{$caminhoFinal}' width='200px' height='200px'>";
 
@@ -136,5 +142,5 @@ $meuEvento = new Evento();
 
 print_r($meuEvento);
 echo "<hr>";
-$meuEvento->inicio($_POST, $_FILES);
+$meuEvento->recebeArquivo($_FILES["banner"]);
 */
