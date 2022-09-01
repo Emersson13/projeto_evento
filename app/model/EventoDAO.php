@@ -72,10 +72,31 @@ class EventoDAO{
         $preparacao->bindValue(":nome", $evento->nomeEvento);
         $preparacao->bindValue(":dataEvento", $evento->dataEvento);
         $preparacao->bindValue(":foto", $evento->banner);
-        $preparacao->bindValue(":id",$id);
-    }
-    public function deletar(){
+        $preparacao->bindValue(":id", $id);
 
+        $preparacao->execute();
+  
+        if($preparacao->rowCount() > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+    public function deletar($id){
+        $sql = "DELETE FROM {$this->tabela} WHERE id_evento = :id";
+
+        $preparacao = Conexao::getConexao()->prepare($sql);
+        $preparacao->bindValue(":id", $id);
+
+        $preparacao->execute();
+        if($preparacao->rowCount() > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
 

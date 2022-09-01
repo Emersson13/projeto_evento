@@ -18,8 +18,15 @@ if(isset($_POST["cadastrar"])){
 if(isset($_POST["atualizar"])){
    $_SESSION["atualizar"] = $meuEvento->inicio($_POST, $_FILES["banner"]);
    if($_SESSION["atualizar"]["status"]){
-        $meuEventoDAO->atualizar($meuEvento, $_POST["atualizar"]); // Estamos passando como parametro um objeto Evento e o id do evento que está atribuído ao $_POST['atualizar']
+        $meuEventoDAO->atualizar($meuEvento,$_POST["atualizar"]); // Estamos passando como parâmetro um objeto Evento e o id do evento que está atribuído ao $_POST['atualizar']
    }
    header("Location:../view/AtualizarEventoView.php");
    die();
+}
+
+if(isset($_POST["excluir"])){
+    //echo "O id para excluir é {$_POST['excluir']}";
+    $meuEventoDAO->deletar($_POST['excluir']);
+    header("Location:../view/VisualizarEventoView.php");
+    die();
 }
